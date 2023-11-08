@@ -1,0 +1,332 @@
+ $main-color: #082B48;
+
+
+ //マップ型変数breakpointsを定義
+$breakpoints: (
+  //キー　　値
+    'sp': 'screen and (max-width: 767px)', //767px以下（スマホ）用の表示
+    'pc': 'screen and (min-width: 768px)' //768px以上（タブレット・PC）用の表示
+  ) !default;
+
+  //メディアクエリ用のmixinを定義。デフォ値はsp
+  @mixin mq($breakpoint: sp) {
+  //map-get(マップ型変数, キー)で値を取得
+    @media #{map-get($breakpoints, $breakpoint)} {
+      //この中をカスタムできる
+      @content;
+    }
+  }
+
+
+ body {
+   color: $main-color;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   line-height: 1.5;
+ }
+
+ img {
+   width: 100%;
+   height: auto;
+ }
+
+ a {
+   text-decoration: none;
+   color: $main-color;
+
+   &:hover {
+     opacity: 0.7;
+   }
+ }
+
+ .inner {
+   width: 90%;
+   max-width: 980px;
+   margin: auto;
+ }
+
+ //  section共通クラス
+
+ .section {
+   padding: 60px 0;
+
+   @include mq(sp) {
+    padding: 80px 0;
+  }
+
+  p {
+    font-size: 14px;
+  }
+ }
+
+ .section__title {
+   font-size: 32px;
+   font-weight: 700;
+   text-align: center;
+   margin-bottom: 40px;
+
+   @include mq(sp) {
+    font-size: 24px;
+  }
+ }
+
+ //  header
+
+ header {
+   padding: 20px 0;
+ }
+
+ .header__content {
+   display: flex;
+   justify-content: space-between;
+
+   @include mq(sp) {
+    display: block;
+  }
+ }
+
+ .header__left {
+
+   h1 {
+     font-size: 24px;
+     font-weight: 700;
+
+     @include mq(sp) {
+      text-align: center;
+    }
+   }
+ }
+
+ .header__nav {
+   display: flex;
+   justify-content: space-betwee
+ }
+
+ .header__nav-item {
+
+   a {
+     font-size: 15px;
+     font-weight: 700;
+     line-height: 36px;
+   }
+
+   &:not(:first-child) {
+    margin-left: 40px;
+   }
+ }
+
+ .toggle-list {
+  display: none;
+  text-align: center;
+ }
+
+ //  top
+
+ .top {
+   background-image: url(../img/main-vsual-nontitle.png);
+   background-size: cover;
+   padding: 80px 0;
+
+   @include mq(sp) {
+    padding: 120px 0;
+  }
+ }
+
+ .top-title {
+   font-size: 48px;
+   font-weight: 700;
+   text-align: center;
+   margin-bottom: 20px;
+
+   @include mq(sp) {
+    font-size: 32px;
+  }
+ }
+
+ .top-subtitle {
+   font-size: 18px;
+   text-align: center;
+
+   @include mq(sp) {
+    font-size: 14px;
+  }
+ }
+
+
+ //  about
+
+ .about__contant {
+   display: flex;
+   justify-content: space-between;
+
+   @include mq(sp) {
+    display: block;
+  }
+ }
+
+ .about__left {
+   width: 48%;
+
+   @include mq(sp) {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+ }
+
+ .about__right {
+   width: 48%;
+
+   @include mq(sp) {
+    width: 100%;
+  }
+ }
+
+ // course
+
+ .course {
+   background-color: #e3fcf4;
+
+ }
+
+ .course__contant {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+
+   @include mq(sp) {
+    display: block;
+  }
+ }
+
+ .course__item {
+   width: 30%;
+
+   @include mq(sp) {
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  a {
+
+    img {
+     width: 100%; 
+    }
+  }
+ }
+
+ .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+ }
+
+ .bigimg {
+  position: absolute;
+  width: 80%;
+  max-width: 800px;
+  top: 250px;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+ }
+
+ .close-btn {
+  color: #fff;
+  font-size: 40px;
+  position: absolute;
+  right: 20px;
+  top: 0;
+
+  a {
+    color: #fff;
+  }
+}
+
+
+ // contact
+
+ .contact-message {
+   text-align: center;
+   margin-bottom: 20px;
+ }
+
+ input[type="email"] {
+   width: 600px;
+   border: 3px solid #d8d8d8;
+   font-size: 18px;
+   display: block;
+   margin: auto;
+   padding: 15px;
+   border-radius: 999px;
+   margin-bottom: 20px;
+
+   @include mq(sp) {
+    width: 100%;
+  }
+ }
+
+ .btn {
+   padding: 20px 60px;
+   display: inline;
+   background-color: $main-color;
+   color: #fff;
+   font-size: 24px;
+   font-weight: 700;
+   border-radius: 4px;
+   border: none;
+   cursor: pointer;
+
+   &:hover {
+     opacity: 0.7;
+   }
+ }
+
+ .btn-register {
+   background-color: #ec6d64;
+   display: block;
+   margin: auto;
+ }
+
+ // footer
+
+ footer {
+   background-color: $main-color;
+   color: #fff;
+   padding: 20px 0;
+ }
+
+ .copyright {
+   font-size: 12px;
+   text-align: right;
+
+   @include mq(sp) {
+    font-size: 10px;
+    text-align: center;
+  }
+ }
+
+ #page_top {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 20px;
+  bottom: 70px;
+  background: #afeedb;
+  opacity: 0.7;
+  border-radius: 50%;
+
+  a {
+    position: relative;
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 3px;
+  }
+ }

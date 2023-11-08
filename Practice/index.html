@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico">
+  <title>30DAYSトライアル</title>
+  <meta name="description" content="30DAYSトライアル練習用LP">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="inner">
+      <div class="header__content">
+        <div class="header__left">
+          <h1>30DAYSトライアル</h1>
+        </div>
+        <div class="header__right">
+          <ul class="header__nav">
+            <li class="header__nav-item"><a href="##about">デイトラとは</a></li>
+            <li class="header__nav-item toggle"><a href="#">コース一覧</a>
+              <ul class="toggle-list">
+                <li><a href="#course">初級</a></li>
+                <li><a href="#course">中級</a></li>
+                <li><a href="#course">上級</a></li>
+              </ul>
+            </li>
+            <li class="header__nav-item"><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="top">
+    <div class="inner">
+      <p class="top-title">
+        1日1題30日で<br>
+        プロのWebエンジニアになろう！
+      </p>
+      <p class="top-subtitle">
+        毎日設定された課題をこなすだけ！<br>
+        未経験から30日でプログラミングスキルをつけよう
+      </p>
+    </div>
+  </section>
+
+  <section id="about" class="about section">
+    <div class="inner">
+      <h2 class="section__title">デイトラとは</h2>
+      <div class="about__contant">
+        <div class="about__left">
+          <img src="./img/about.png" alt="デイトラとは">
+        </div>
+        <div class="about__right">
+          <p>デイトラとは、無料で・迷わず・楽しく学べるプログラミング学習アプリです。 毎日設定された課題をこなしていくだけで、未経験から30日でプログラミングスキルが身につきます。<dr>
+              1日1題30日でプロのWebエンジニアを目指しましょう!</p>
+          <p>デイトラとは、無料で・迷わず・楽しく学べるプログラミング学習アプリです。 毎日設定された課題をこなしていくだけで、未経験から30日でプログラミングスキルが身につきます。<dr>
+              1日1題30日でプロのWebエンジニアを目指しましょう!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="course" class="course section">
+    <div class="inner">
+      <h2 class="section__title">コース一覧</h2>
+      <div class="course__contant">
+        <div class="course__item">
+          <a href="#"><img src="./img/web_first.png" alt="デイトラ初級編"></a>
+          <p>HTML / CSS / Bootstrap</p>
+        </div>
+        <div class="course__item">
+          <a href=""><img src="./img/web_second.png" alt="デイトラ中級編"></a>
+          <p>HTML / CSS / JavaScript / jQuery</p>
+        </div>
+        <div class="course__item">
+          <a href=""><img src="./img/web_third.png" alt="デイトラ上級編"></a>
+          <p>PHP / WordPress</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal">
+    <div class="bigimg"><img src="" alt=""></div>
+    <p class="close-btn"><a href="">×</a></p>
+  </div>
+
+  <section id="contact" class="contact section">
+    <div class="inner">
+      <h2 class="section__title">お問い合わせ</h2>
+      <p class="contact-message">さあ今日から30日間をはじめよう！</p>
+      <form action="#" method="post">
+        <input type="email" name="email" id="email" placeholder="メールアドレス">
+        <button type="submit" class="btn btn-register">無料ではじめる</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="inner">
+      <div class="container">
+        <p class="copyright">Copyright(C) 2020 東京フリーランス ALL Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="page_top">
+    <a href="#">🔝</a>
+  </div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $(".toggle").click(function () {
+        $(".toggle-list").slideToggle();
+      });
+
+      $(function () {
+        var pagetop = $("#page_top");
+        pagetop.hide();
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 80) {
+            pagetop.fadeIn(300);
+          } else {
+            pagetop.fadeOut(300);
+          }
+        });
+
+        pagetop.click(function () {
+          $('body,html').animate({
+            scrollTop: 0
+          }, 500);
+          return false;
+        });
+      });
+
+      $(function(){
+        $('.course__item a').click(function(){
+          var imgSrc = $(this).children().attr('src');
+          $('.bigimg').children().attr('src',imgSrc);
+          $('.modal').fadeIn();
+          $('body,html').css('overflow-y','hidden');
+          return false;
+        });
+
+        $('.close-btn').click(function(){
+          $('.modal').fadeOut();
+          $('body,html').css('overflow-y','visible');
+          return false;
+        });
+      });
+
+      $(function(){
+        $('.course__item a').click(function(){
+          var imgSrc = $(this).children().attr('src');
+          $('.bigimg').children().attr('src',imgSrc);
+          $('.modal').fadeIn();
+          $('body,html').css('overflow-y','hidden');
+          return false;
+        });
+
+        $('.close-btn').click(function(){
+          $('.modal').fadeOut();
+          $('body,html').css('overflow-y','visible');
+          return false;
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
